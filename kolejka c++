@@ -1,0 +1,59 @@
+#include <queue>
+#include<ctime>
+#include<cstdlib>
+#include <iostream>
+
+using namespace std;
+void utworz_kolejke(queue<int>& kolejka)
+{
+    srand(time(NULL));
+        for (int i = 0; i < 6; i++)
+        {
+            kolejka.push(rand() % 100 + 1);
+        }
+
+}
+void pokaz_kolejke(queue<int> kolejka)
+{
+    int n = kolejka.size();
+    if (kolejka.empty())
+    {
+        cout << "kolejka jest pusta" << endl;
+    }
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            cout << kolejka.front() << " ";
+            kolejka.pop();
+        }
+    }
+}
+    void usun_kolejke(queue<int>  kolejkaa)
+    {
+        int liczbakolumn;
+        liczbakolumn = kolejkaa.size();
+        for ( int i= 0; i < liczbakolumn; i++)
+        {
+            kolejkaa.pop();
+        }
+    }
+    void max(queue<int>  kolejkas)
+    {
+
+    }
+
+
+int main()
+{
+    queue<int>kolejka;
+    utworz_kolejke(kolejka);
+    pokaz_kolejke(kolejka);
+    usun_kolejke(kolejka);
+
+   
+   
+
+
+}
+
