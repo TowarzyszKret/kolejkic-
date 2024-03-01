@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <stack>
+using namespace std;
+
+void utworz_stos(stack<int>& stos)
+{
+	srand(time(NULL));
+	for (int i = 0; i < 6; i++)
+	{
+		stos.push(rand() % 100 + 1);
+	}
+
+}
+
+void pokaz_stos(stack<int> &stos)
+{
+	int n = stos.size();
+	if (stos.empty())
+	{
+		cout << "stos jest pusty" << endl;
+	}
+	else
+	{
+		for (int i = 0; i < n; i++)
+		{
+			cout << stos.top() << " ";
+			stos.pop();
+	}
+		}
+}
+void wstawianie()
+
+
+void usun_stos(stack<int>& stos)
+{
+	while (!stos.empty())
+	{
+		stos.pop();
+	}
+	
+}
+
+
+int main()
+{
+	stack <int>stos;
+	utworz_stos(stos);
+	pokaz_stos(stos);
+	usun_stos(stos);
+	
+	if (stos.empty())
+	{
+		cout << "\n" << "stos jest pusty";
+	}
+
+	
+
+
+	
+
+}
