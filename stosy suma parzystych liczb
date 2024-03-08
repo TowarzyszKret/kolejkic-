@@ -1,0 +1,79 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <stack>
+
+using namespace std;
+void utworz_stos(stack<int>& stos)
+{
+	srand(time(NULL));
+	for (int i = 0; i < 6; i++)
+	{
+		stos.push(rand() % 100 + 1);
+	}
+}
+void wyswietl_stos(stack <int> stos)
+{
+	int n = stos.size();
+	if (stos.empty())
+	{
+		cout << "stos jest pusty" << endl;
+	}
+	else {
+		for (int i = 0; i < n; i++)
+		{
+		cout << stos.top() << " ";
+		stos.pop();
+	}
+	}
+}
+void usun_stos(stack<int>& stos)
+	{
+		while (!stos.empty())
+		{
+			stos.pop();
+		}
+		if (stos.empty())
+		{
+			cout << "stos zostal usuniety!" << endl;
+		}
+
+	
+	}
+float dodawanie(stack<int> stos)
+{
+	/*if (stos.empty())
+	{
+		cout << "stos jest pusty" << endl;
+	}
+	else {
+		if (stos.top() % 2 == 0)
+		{
+			int suma_liczb = 0;
+		if (!stos.empty())
+			{
+				suma_liczb += stos.top();
+				stos.pop();
+			}return suma_liczb;
+		}
+
+	}*/
+	int suma = 0;
+	while (!stos.empty())
+	{
+		if (stos.top() % 2 == 0)
+		{
+			suma += stos.top();
+		}
+		stos.pop();
+	}
+	return suma;
+}
+int main()
+{
+	stack<int>stos;
+	utworz_stos(stos);
+	wyswietl_stos(stos);
+	cout << "suma wynosi " << dodawanie(stos) << endl;
+	usun_stos(stos);
+}
