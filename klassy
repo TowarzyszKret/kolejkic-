@@ -23,24 +23,31 @@ public:
 	int a;
 	int b;
 	int h;
+	int bok1;
+	int bok2;
 	int pole()
 	{
 		return ((a + b) * h) / 2;
 	}
-	
+	int obwod()
+	{
+		return a + b + bok1 + bok2;
+	}
 };
 int main()
 {
 	prostokat p1;
 	p1.a = 4;
 	p1.b = 5;
-	cout << "pole prostokata jest rowne " << p1.pole() <<endl;
+	cout << "pole prostokata jest rowne " << p1.pole() << endl;
 
 	trapez t1;
-	t1.a=3;
+	t1.a = 3;
 	t1.b = 5;
 	t1.h = 6;
-	cout << "pole trapezu wynosi : " << t1.pole();
+	t1.bok1=7;
+	t1.bok2=10;
+	cout << "pole trapezu wynosi : " << t1.pole()<<endl;
+	cout << "obwod wynosi : " << t1.obwod();
 
-  
 }
