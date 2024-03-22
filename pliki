@@ -1,0 +1,55 @@
+#include <iostream>
+#include <fstream>
+#include <string> 
+using namespace std;
+int main()
+{
+	fstream plik("dane.txt", ios::in);
+	string dane;
+
+	int dzien = 0, na_plusie = 0, na_minusie = 0, suma = 0,temperatura=0;
+	
+	if (plik.is_open())
+	{
+		cout << "temperatura :"<<endl;
+		while (getline(plik, dane))
+		{
+
+			cout << dane << " ";
+		}
+		plik.close();
+		fstream plik("dane.txt", ios::in);
+		if (plik.is_open())
+		{ 
+			while (plik >> temperatura)
+			{
+				int suma;
+				dzien++;
+				suma += temperatura;
+				if (temperatura > 0)
+				{
+					na_plusie++;
+				}
+				else if (temperatura < 0)
+				{
+					na_minusie++;
+				}
+			}
+			float srednia;
+			srednia =float(suma) / dzien;
+		}
+		else {
+			cout << "nie znaleziono pliku" << endl;
+		}
+		fstream plik2("wyniki.txt", ios::out);
+		plik2  << "liczba dni :"<<dzien<<endl;
+		plik2 << "temperatrua dodatnia byla przez :" << na_plusie << endl;
+		plik2 << "temperatura ujemna byla przez :" << na_minusie << endl;
+		plik.close();
+		plik2.close();
+
+	}
+	else {
+		cout << "nie ma dostępu do pliku"<<endl;
+	}
+}
