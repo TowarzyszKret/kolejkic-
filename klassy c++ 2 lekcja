@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+class prostopadloscian
+{
+	int a;
+	int b;
+	int c;
+	int farba;
+	float cena;
+public:
+	prostopadloscian(int a, int b, int c, int farba, float cena) :c(c), a(a), b(b), farba(farba), cena(cena) {
+
+	}
+	int pole()
+	{
+		return 2 * a * b + 2 * b * c + 2 * a * c;
+	}
+	int objetosc()
+	{
+		return a * b * c;
+	}
+	float cenaFarby()
+	{
+		return cena * farba;
+	}
+	float kosztpokrycia()
+	{
+		return ((pole() - (a*b)) * cenaFarby());
+	}
+
+};
+
+int main()
+{
+	int a, b, c, farba;
+	float cena;
+	cout << "bok o_0  nr1 ";
+	cin >> a;
+	cout << "bok o_0  nr2 ";
+	cin >> b;
+	cout << "wysokosc twojego smigla lub  samsunga ";
+	cin >> c;
+	cout << "odaj cene farby za litr " << endl;
+	cin >> farba;
+	cout << "oddaj pieniadze "<<endl;
+	cin >> cena;
+	prostopadloscian p1(a, b, c, farba, cena);
+	cout << "pole prostopadloscianu jest rowne " << p1.pole() << "m2" << endl;
+	cout << "objjetosc wynosi " << p1.objetosc() << "m3" << endl;
+
+	cout << "cena wynosi " << p1.kosztpokrycia() << "zl" << endl;
+}
